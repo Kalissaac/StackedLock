@@ -1,87 +1,76 @@
 <style>
-		div {
-			font-family: 'Montserrat', sans-serif;
-			color: #3d3d3d;
-		}
-		.greeting {
-			font-weight: 700;
-			font-size:2.75rem;
-			float: left;
-		}
-		.time {
-			font-weight: 400;
-			font-size: 2.75rem;
-			float: right;
-            text-align: right;
-		}
-		.subtitle {
-            margin-top: 3cm;
-			font-weight: 500;
-			font-size: 1.75rem;
-			text-align: center;
-		}
-	</style>
-	<body>
-		<div class="stack">
-			<div class="greeting">
-				GOOD
-				<div id="tod">
-					AFTERNOON
-				</div>
-			</div>
-			<div class="time">
-				<div id="hh">
-					13
-				</div>
-				<div id="mm">
-					37
-				</div>
-			</div>
-		</div>
-		<br />
-		<div class="subtitle">
-			<div id="date">
-				1 JANUARY 1970
-			</div>
-			<div id="weather">
-				
-			</div>
-		</div>
-	</body>
-	
-	<script src="js/moment.min.js"></script>
-	<script>
-        moment.updateLocale('en', {
-            longDateFormat : {
-                LL: "DD MMMM YYYY"
-            }
-        })
+  div {
+    font-family: 'Montserrat', sans-serif;
+    color: #3d3d3d;
+  }
+  .greeting {
+    font-weight: 700;
+    font-size:2.75rem;
+    float: left;
+  }
+  .time {
+    font-weight: 400;
+    font-size: 2.75rem;
+    float: right;
+    text-align: right;
+  }
+  .subtitle {
+    margin-top: 3cm;
+    font-weight: 500;
+    font-size: 1.75rem;
+    text-align: center;
+  }
+</style>
+<body>
+  <div class="stack">
+    <div class="greeting">
+      GOOD
+      <div id="tod">AFTERNOON</div>
+    </div>
+    <div class="time">
+      <div id="hh">13</div>
+      <div id="mm">37</div>
+    </div>
+  </div>
+  <br />
+  <div class="subtitle">
+    <div id="date">1 JANUARY 1970</div>
+    <div id="weather"></div>
+  </div>
+</body>
 
-		function mainUpdate(type){
-			updateTime()
-			if (type == "weather") {
-				document.getElementById('weather').innerHTML = weather.condition.toUpperCase()
-			}
-		}
-		
-		function updateTime () {
-            moment
-			var currentTime = moment().locale('en-gb')
-			document.getElementById('hh').innerHTML = currentTime.hours()
-			document.getElementById('mm').innerHTML = currentTime.minutes()
-			document.getElementById('date').innerHTML = currentTime.format('LL').toUpperCase()
-			let hh = currentTime.hours()
-			let tod = ''
-			if (hh <= 4 || hh >= 20) {
-				tod = 'Night'
-			} else if (hh >= 12 && hh <= 16) {
-				tod = 'Afternoon'
-			} else if (hh >= 17 && hh <= 19) {
-				tod = 'Evening'
-			} else if (hh >= 5 && hh <= 11) {
-				tod = 'Morning'
-			}
-			document.getElementById('tod').innerHTML = tod.toUpperCase()
-		}
-		updateTime()
-	</script>
+<script src="js/moment.min.js"></script>
+<script>
+  moment.updateLocale('en', {
+    longDateFormat : {
+      LL: "DD MMMM YYYY"
+    }
+  })
+
+  function mainUpdate(type){
+    updateTime()
+    if (type == "weather") {
+      document.getElementById('weather').innerHTML = weather.condition.toUpperCase()
+    }
+  }
+  
+  function updateTime () {
+    var currentTime = moment().locale('en-gb')
+    document.getElementById('hh').innerHTML = currentTime.hours()
+    document.getElementById('mm').innerHTML = currentTime.minutes()
+    document.getElementById('date').innerHTML = currentTime.format('LL').toUpperCase()
+    let hh = currentTime.hours()
+    let tod = ''
+    if (hh <= 4 || hh >= 20) {
+      tod = 'Night'
+    } else if (hh >= 12 && hh <= 16) {
+      tod = 'Afternoon'
+    } else if (hh >= 17 && hh <= 19) {
+      tod = 'Evening'
+    } else if (hh >= 5 && hh <= 11) {
+      tod = 'Morning'
+    }
+    document.getElementById('tod').innerHTML = tod.toUpperCase()
+  }
+  updateTime()
+</script>

@@ -1,6 +1,6 @@
 # StackedLock
 
-A modern stacked lockscreen for XenHTML. Requires XenInfo for weather information. This was created as a fun project and will probably never be updated.
+A modern stacked lockscreen for XenHTML. Requires XenInfo for weather information and [Montserrat](https://fonts.google.com/specimen/Montserrat) for fonts. This was created as a fun project and will probably never be updated.
 
 ## Installation:
 1. Download repository files
